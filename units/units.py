@@ -1,8 +1,8 @@
-class Units:
+class UnitsManager:
     _metrics = {
         'length': {
             'american': {
-                'inch': 0.0254,
+                'дюйм': 0.0254,
                 'фут': 0.3048,
                 'ярд': 0.9144,
                 'миля': 1609.3,
@@ -16,6 +16,12 @@ class Units:
                 'верста': 1609.3,
                 'поприще': 1609.3,
             },
+            'ci': {
+                'мм': 0.001,
+                'см': 0.01,
+                'метр': 1,
+                'км': 1000,
+            }
         },
         'weight': {
             'american': {
@@ -32,6 +38,11 @@ class Units:
                 'батман': 4.1,
                 'берковец': 163.8,
             },
+            'ci': {
+                'миллиграмм': 0.001,
+                'грамм': 1,
+                'килограмм': 1000,
+            }
         },
         'volume_of_liquids': {
             'american': {
@@ -49,13 +60,21 @@ class Units:
                 'осьмуха': 1.55,
                 'бочка': 492,
             },
+            'ci': {
+                'мл': 0.001,
+                'л': 1,
+            }
         },
     }
 
-    @staticmethod
-    def get_list_units():
-        return list(Units._metrics.keys())
+    def get_list_of_metrics(self):
+        return list(self._metrics.keys())
 
-    @staticmethod
-    def get_list_metrics():
-        return list(Units._metrics[Units.get_list_units()[0]].keys()) + ['ci']
+    def get_list_of_units(self, metrics):
+        return list(self._metrics[metrics].keys())
+
+    def get_list_of_unit(self, metrics, units):
+        return list(self._metrics[metrics][units].keys())
+
+    def get_ratio(self, unit: tuple):
+        return self._metrics[unit[0]][unit[1]][unit[2]]

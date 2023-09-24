@@ -1,2 +1,0 @@
-class CI:
-    pass
