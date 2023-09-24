@@ -1,0 +1,2 @@
+class OldRussian:
+    pass

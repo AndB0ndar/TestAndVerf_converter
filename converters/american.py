@@ -1,0 +1,2 @@
+class American:
+    pass
