@@ -4,6 +4,9 @@ class UnitsManager(object):
     of this application.
     """
     _units = [
+        # length,
+        # weight,
+        # volume_of_liquids
     ]
 
     def __iter__(self):
